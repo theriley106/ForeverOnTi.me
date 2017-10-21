@@ -18,6 +18,8 @@
 using namespace std;
 upm::Jhd1313m1* lcd;
 
+const int buzzerPin = 5;
+
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string currentDateTime() {
     time_t     now = time(0);
@@ -44,12 +46,19 @@ int main(int argc, char* argv[])
 	string str1 = argv[1];
 	string str2 = argv[2];
 	string str3 = argv[3];
-
+	pinMode(buzzerPin, OUTPUT);
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
-
+	int a = 1;
 	while (true) {
 		display(currentDateTime(), "Red", RGB_RED);
 		sleep(1);
+		a += 1;
+		if ( a > 10 )
+		{
+			digitalWrite(buzzerPin, HIGH);
+			sleep(1);
+			digitalWrite(buzzerPin, LOW);
+		}
 }	delete lcd;
 	return 0;
 }
