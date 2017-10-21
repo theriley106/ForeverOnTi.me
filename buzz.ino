@@ -13,5 +13,6 @@ void loop() {
         digitalWrite(buzzerPin, HIGH);
         delay(100);
         digitalWrite(buzzerPin, LOW);
+        bool button = false;
         }
 }
