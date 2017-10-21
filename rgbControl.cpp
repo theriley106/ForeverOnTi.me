@@ -21,16 +21,14 @@ void display(string str1, string str2, int red, int green, int blue)
 	lcd->setColor(red, green, blue);
 	lcd->setCursor(0,0); /* first row */
 	lcd->write(str1);
-	lcd->setCursor(1,2); /* second row */
-	lcd->write(str2);
 	sleep(SLEEP_TIME);
 }
 
 int main(int argc, char* argv[])
 {
-	string str1 = "";
-	string str2 = "";
-	string str3 = "";
+	string str1 = "test";
+	string str2 = "test";
+	string str3 = "test";
 	str1 = argv[1];
 	str2 = argv[2];
 	str3 = argv[3];
