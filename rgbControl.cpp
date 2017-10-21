@@ -26,12 +26,9 @@ void display(string str1, string str2, int red, int green, int blue)
 
 int main(int argc, char* argv[])
 {
-	string str1 = "test";
-	string str2 = "test";
-	string str3 = "test";
-	str1 = argv[1];
-	str2 = argv[2];
-	str3 = argv[3];
+	string str1 = argv[1];
+	string str2 = argv[2];
+	string str3 = argv[3];
 
 	while (true) {
 		display(str1, "Red", RGB_RED);
