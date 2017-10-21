@@ -39,7 +39,6 @@ void display(string str1, string str2, int red, int green, int blue)
 	lcd->write(str1);
     lcd->setCursor(1, 1);
     lcd->write(str1);
-	sleep(SLEEP_TIME);
 }
 
 int main(int argc, char* argv[])
