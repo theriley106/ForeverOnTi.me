@@ -29,6 +29,8 @@ int main(int argc, char* argv[])
 	string str1 = argv[1];
 	string str2 = argv[2];
 	string str3 = argv[3];
+	
+	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
 
 	while (true) {
 		display(str1, "Red", RGB_RED);
