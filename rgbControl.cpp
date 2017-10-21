@@ -21,6 +21,11 @@ void display(string str1, string str2, int red, int green, int blue)
 	lcd->setColor(red, green, blue);
 	lcd->setCursor(0,0); /* first row */
 	lcd->write(str1);
+	lcd->write(byte(2));
+    lcd->write(byte(3));
+    lcd->setCursor(2, 1);
+    lcd->write(byte(3));
+    lcd->write(byte(2));
 	sleep(SLEEP_TIME);
 }
 
@@ -29,7 +34,7 @@ int main(int argc, char* argv[])
 	string str1 = argv[1];
 	string str2 = argv[2];
 	string str3 = argv[3];
-	
+
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
 
 	while (true) {
