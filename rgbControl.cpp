@@ -51,6 +51,7 @@ int main(int argc, char* argv[])
 
 	while (true) {
 		display(currentDateTime(), "Red", RGB_RED);
+		sleep(1);
 }	delete lcd;
 	return 0;
 }
