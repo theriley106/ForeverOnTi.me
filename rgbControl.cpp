@@ -18,6 +18,7 @@ upm::Jhd1313m1* lcd;
 void display(string str1, string str2, int red, int green, int blue)
 {
 	lcd->clear();
+	lcd->begin(16,1);
 	lcd->setColor(red, green, blue);
 	lcd->setCursor(0,0); /* first row */
 	lcd->write(str1);
