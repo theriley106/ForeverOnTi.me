@@ -7,12 +7,15 @@ void setup() {
 }
 
 bool last_button = false;
-void loop() {
+void loop()
+{
     bool button = digitalRead(button_pin);
-    if (button) {
-        digitalWrite(buzzerPin, HIGH);
-        delay(100);
-        digitalWrite(buzzerPin, LOW);
-        bool button = false;
+    if (last_button != button)
+    {
+        if (button) {
+            digitalWrite(buzzerPin, HIGH);
         }
-}
+        delay(100);
+    }
+    last_button = button;
+} 
