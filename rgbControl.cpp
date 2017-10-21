@@ -28,6 +28,9 @@ void display(string str1, string str2, int red, int green, int blue)
 
 int main(int argc, char* argv[])
 {
+	string str1 = "";
+	string str2 = "";
+	string str3 = "";
 	str1 = argv[1];
 	str2 = argv[2];
 	str3 = argv[3];
@@ -36,7 +39,7 @@ int main(int argc, char* argv[])
 		display(str1, "Red", RGB_RED);
 		display(str2, "Green", RGB_GRN);
 		display(str3, "Blue", RGB_BLU);
-	}
-	delete lcd;
+	
+}	delete lcd;
 	return 0;
 }
