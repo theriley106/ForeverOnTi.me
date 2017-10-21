@@ -26,7 +26,7 @@ const std::string currentDateTime() {
     tstruct = *localtime(&now);
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
-    strftime(buf, sizeof(buf), "%m-%d.%X", &tstruct);
+    strftime(buf, sizeof(buf), "%X", &tstruct);
 
     return buf;
 }
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 
 	while (true) {
 		display(currentDateTime(), "Red", RGB_RED);
-		sleep(2);
+		sleep(1);
 }	delete lcd;
 	return 0;
 }
