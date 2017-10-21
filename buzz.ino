@@ -1,16 +1,17 @@
 const int buzzerPin = 7;
+const int button_pin = 0;
 
 void setup() {
     pinMode(buzzerPin, OUTPUT);
+    pinMode(button_pin, INPUT);
 }
 
+bool last_button = false;
 void loop() {
-    digitalWrite(buzzerPin, HIGH);
-    delay(1000);
-    digitalWrite(buzzerPin, LOW);
-    delay(1000);
-    digitalWrite(buzzerPin, HIGH);
-    delay(1000);
-    digitalWrite(buzzerPin, LOW);
-    delay(1000);
+    bool button = digitalRead(button_pin);
+    if (button) {
+        digitalWrite(buzzerPin, HIGH);
+        delay(100);
+        digitalWrite(buzzerPin, LOW);
+        }
 }
