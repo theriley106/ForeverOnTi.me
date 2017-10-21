@@ -47,15 +47,7 @@ int main(int argc, char* argv[])
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
 	int a = 1;
 	while (true) {
-		display(currentDateTime(), "Red", RGB_RED);
-		sleep(1);
-		a += 1;
-		if ( a > 10 )
-		{
-			digitalWrite(buzzerPin, HIGH);
-			sleep(1);
-			digitalWrite(buzzerPin, LOW);
-		}
+		display("Check out my Mixtape...", "Red", RGB_RED);
 }	delete lcd;
 	return 0;
 }
