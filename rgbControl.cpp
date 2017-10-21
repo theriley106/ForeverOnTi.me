@@ -4,6 +4,9 @@
 
 #include <string>
 #include "upm/jhd1313m1.hpp"
+#include <iostream>
+#include <stdio.h>
+#include <time.h>
 
 #define I2C_BUS  0
 #define RGB_WHT 0xff,0xff,0xff
@@ -14,6 +17,19 @@
 
 using namespace std;
 upm::Jhd1313m1* lcd;
+
+// Get current date/time, format is YYYY-MM-DD.HH:mm:ss
+const std::string currentDateTime() {
+    time_t     now = time(0);
+    struct tm  tstruct;
+    char       buf[80];
+    tstruct = *localtime(&now);
+    // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
+    // for more information about date/time format
+    strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
+
+    return buf;
+}
 
 void display(string str1, string str2, int red, int green, int blue)
 {
@@ -35,10 +51,7 @@ int main(int argc, char* argv[])
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
 
 	while (true) {
-		display(str1, "Red", RGB_RED);
-		display(str2, "Green", RGB_GRN);
-		display(str3, "Blue", RGB_BLU);
-	
+		display(currentDateTime(), "Red", RGB_RED);
 }	delete lcd;
 	return 0;
 }
