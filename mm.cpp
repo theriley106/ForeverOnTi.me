@@ -18,8 +18,6 @@
 using namespace std;
 upm::Jhd1313m1* lcd;
 
-const int buzzerPin = 5;
-
 // Get current date/time, format is YYYY-MM-DD.HH:mm:ss
 const std::string currentDateTime() {
     time_t     now = time(0);
@@ -28,7 +26,7 @@ const std::string currentDateTime() {
     tstruct = *localtime(&now);
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
-    strftime(buf, sizeof(buf), "%X", &tstruct);
+    strftime(buf, sizeof(buf), "%m-%d.%X", &tstruct);
 
     return buf;
 }
@@ -43,11 +41,17 @@ void display(string str1, string str2, int red, int green, int blue)
 
 int main(int argc, char* argv[])
 {
-	pinMode(buzzerPin, OUTPUT);
+	string str1 = argv[1];
+	string str2 = argv[2];
+	string str3 = argv[3];
+
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
-	int a = 1;
+
 	while (true) {
-		display("Check out my Mixtape...", "Red", RGB_RED);
+		display("Check out my mixtape...", "Red", RGB_RED);
+		sleep(2);
+		display("https://soundcloud.com/wavey-hefner/lil-pump-gucci-gang-prod-bighead-gnealz", "Red", RGB_RED);
+		sleep(2);
 }	delete lcd;
 	return 0;
 }
