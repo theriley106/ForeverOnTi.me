@@ -36,7 +36,8 @@ class Clock(object):
 				if len(a) < 27 and len(a) > 20:
 					a, b = a.split(' ')
 					b = b.partition('.')[0]
-					os.system('sudo ./main "{}" "{}"'.format(b, a))
+					if self.custom == False:
+						os.system('sudo ./main "{}" "{}"'.format(b, a))
 			time.sleep(1)
 
 	def clear(self):
