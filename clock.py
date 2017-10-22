@@ -47,13 +47,14 @@ class Clock(object):
 
 	def Alarm(self):
 		time.sleep(3)
-		while self.alarm == True:
-			buzz = mraa.Gpio(29)
-			buzz.dir(mraa.DIR_OUT)
-			buzz.write(1)
-			time.sleep(.5)
-			buzz.write(0)
-			time.sleep(.5)
+		while True:
+			if self.alarm == True:
+				buzz = mraa.Gpio(29)
+				buzz.dir(mraa.DIR_OUT)
+				buzz.write(1)
+				time.sleep(.5)
+				buzz.write(0)
+				time.sleep(.5)
 
 
 	def startAlarm(self):
