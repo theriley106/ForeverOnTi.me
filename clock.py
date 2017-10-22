@@ -13,6 +13,7 @@ class Clock(object):
 		self.custom = False
 		self.touch = mraa.Gpio(32)
 		self.touch.dir(mraa.DIR_IN)
+		self.baseSnooze = self.touch.read()
 		
 	def initthreads(self):
 		#thread1 = threading.Thread(target=self.update)
@@ -40,7 +41,7 @@ class Clock(object):
 		time.sleep(3)
 		while True:
 			if self.alarm == True:
-				if self.touch.read() == 0:
+				if self.touch.read() != self.baseSnooze:
 					self.alarm = False
 					print("Alarm STOPPED")
 
