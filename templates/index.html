@@ -33,11 +33,13 @@
 
 <form action="{{url_for('turnOff') }}" method="post">
 <center>
-<button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Turn Off LCD</button></form></center>
+<button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Force Refresh LCD</button></form></center>
 <br>
 
 <form action="{{url_for('turnOn') }}" method="post">
 <center>
+<input type="text" name="tctc" placeholder="TCTC Login" />
+    <input type="text" name="pass" placeholder="Password" />
 <button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Turn On LCD</button></form></center>
 <br>
 
