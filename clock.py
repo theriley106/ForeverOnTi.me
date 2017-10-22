@@ -9,10 +9,7 @@ from pytz import timezone
 import pytz
 import datetime
 import sleepytime
-
 app = Flask(__name__)
-
-
 class Clock(object):
 	def __init__(self):
 		self.alarm = False
@@ -94,7 +91,7 @@ class Clock(object):
 					buzz.write(0)
 					time.sleep(.5)
 
-	def setAlarm(time1, time2=None):
+	def setAlarm(self, time1, time2=None):
 		self.time1 = time1.replace(":", ".")
 		if time2 != None:
 			self.time2 = time2.replace(":", ".")
