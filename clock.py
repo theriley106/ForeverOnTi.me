@@ -33,8 +33,7 @@ class Clock(object):
 			if self.custom == False:
 				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
 				a = str((datetime.datetime.utcnow() - datetime.timedelta(hours=4)))
-				print len(a)
-				if len(a) < 27:
+				if len(a) < 27 and len(a) > 20:
 					a, b = a.split(' ')
 					b = b.partition('.')[0]
 					os.system('sudo ./main "{}" "{}"'.format(b, a))
