@@ -44,6 +44,9 @@ def alarmSetting(times):
 	clock.setAlarm(time1, time2)
 	return "DONE"
 
+@app.route('/')
+def index():
+	return render_template('index.html')
 
 if __name__ == "__main__":
 	clock.initthreads()
