@@ -18,10 +18,10 @@ def clear():
 
 @app.route('/write/<text>', methods=['POST'])
 def write():
-	text = text.split("/")
+	text = text.split("|")
 	text = text.join(' ')
 	os.system('sudo ./main {}'.format(text))
 
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=8888)
+	app.run(host='0.0.0.0', port=8888, debug=True)
