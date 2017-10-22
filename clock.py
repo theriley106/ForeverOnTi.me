@@ -16,11 +16,9 @@ app = Flask(__name__)
 def clear():
 	os.system('sudo ./clear')
 
-@app.route('/write/<text>', methods=['POST'])
-def write():
-	text = text.split("|")
-	text = text.join(' ')
-	os.system('sudo ./main {}'.format(text))
+@app.route('/write/<text1>/<text2>', methods=['POST'])
+def write(text1, text2=""):
+	os.system('sudo ./main {} {}'.format(text1, text2))
 
 
 if __name__ == "__main__":
