@@ -46,6 +46,7 @@ class Clock(object):
 
 	def returnSnooze(self):
 		time.sleep(3)
+		start, end = str((datetime.datetime.utcnow() - datetime.timedelta(hours=4))).split(' ')[1].split(':')[0:2]
 		while True:
 			if self.alarmSet == True and self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end:
 				if self.touch.read() != self.baseSnooze:
