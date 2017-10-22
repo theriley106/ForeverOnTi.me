@@ -38,7 +38,7 @@ def snooze():
 	return redirect(url_for('index'))
 
 
-@app.route('/alarm/addvar/<times>', methods=['POST'])
+@app.route('/alarm/addvar/<times>', methods=['GET', 'POST'])
 def alarmSetting(times):
 	time1, time2 = times.split('+')
 	clock.setAlarm(time1, time2)
