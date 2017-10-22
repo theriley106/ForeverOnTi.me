@@ -44,6 +44,16 @@ def alarmSetting(times):
 	clock.setAlarm(time1, time2)
 	return render_template('index.html')
 
+@app.route('/alarm/off', methods=['POST'])
+def turnOff():
+	clock.clear()
+	return render_template('index.html')
+
+@app.route('/alarm/on', methods=['POST'])
+def turnOn():
+	clock.turnOn()
+	return render_template('index.html')
+
 @app.route('/')
 def index():
 	return render_template('index.html')

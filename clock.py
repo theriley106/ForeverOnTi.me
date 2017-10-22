@@ -39,6 +39,13 @@ class Clock(object):
 					os.system('sudo ./main "{}" "{}"'.format(b, a))
 			time.sleep(1)
 
+	def clear(self):
+		self.custom == True
+		os.system('sudo ./clear')
+
+	def turnOn(self):
+		self.custom = False
+
 	def customText(self, text1, text2=" "):
 		self.custom = True
 		text1 = text1.replace(' ', '%20')
