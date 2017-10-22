@@ -13,6 +13,8 @@ class Clock(object):
 		self.custom = False
 		self.touch = mraa.Gpio(32)
 		self.touch.dir(mraa.DIR_IN)
+		
+	def initthreads(self):
 		thread1 = threading.Thread(target=self.update)
 		thread1.start()
 		thread2 = threading.Thread(target=self.Alarm)
