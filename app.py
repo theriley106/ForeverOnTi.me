@@ -30,12 +30,12 @@ def write(text1, text2=""):
 @app.route('/alarm/start', methods=['POST'])
 def alarm():
 	clock.startAlarm()
-	return 1
+	return "DONE"
 
 @app.route('/alarm/snooze', methods=['POST'])
 def snooze():
 	clock.alarm = False
-	return 1
+	return "DONE"
 
 
 
