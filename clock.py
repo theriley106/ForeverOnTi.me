@@ -8,11 +8,11 @@ import requests
 app = Flask(__name__)
 class Clock(object):
 	def __init__(object):
-		thread1 = threading.Thread(target=update)
+		thread1 = threading.Thread(target=self.update)
 		thread1.start()
-		thread2 = threading.Thread(target=Alarm)
+		thread2 = threading.Thread(target=self.Alarm)
 		thread2.start()
-		thread3 = threading.Thread(target=returnSnooze)
+		thread3 = threading.Thread(target=self.returnSnooze)
 		thread3.start()
 		self.alarm = False
 		self.custom = False
@@ -51,4 +51,4 @@ class Clock(object):
 		self.alarm = True
 
 
-a = Clock()
+
