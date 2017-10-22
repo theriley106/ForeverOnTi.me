@@ -5,7 +5,9 @@ import mraa
 from time import gmtime, strftime
 from flask import Flask, request, render_template, request, url_for, redirect, Markup, Response, send_file, send_from_directory, make_response, jsonify
 import requests
-
+from pytz import timezone
+import pytz
+from datetime import datetime, timedelta
 app = Flask(__name__)
 class Clock(object):
 	def __init__(self):
@@ -25,11 +27,16 @@ class Clock(object):
 
 	def update(self):
 		time.sleep(3)
+		eastern = timezone('US/Eastern')
+		fmt = '%Y-%m-%d %H:%M:%S'
 		while True:
 			if self.custom == False:
-				a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
-				requests.post('http://192.168.43.239:8888/write/{}'.format(a))
-			time.sleep(.5)
+				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
+				loc_dt = eastern.localize(datetime(2012, 10, 29, 6, 0, 0))
+				loc_dt.strftime(fmt)
+				a, b = a.split(' ')
+				os.system('sudo ./main "{}" "{}"'.format(a, b))
+			time.sleep(.8)
 
 	def customText(self, text1, text2=" "):
 		self.custom = True
