@@ -34,7 +34,7 @@ class Clock(object):
 				a, b = a.split(' ')
 				b = b.partition('.')[0]
 				os.system('sudo ./main "{}" "{}"'.format(b, a))
-			time.sleep(.8)
+			time.sleep(1)
 
 	def customText(self, text1, text2=" "):
 		self.custom = True
