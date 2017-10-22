@@ -54,6 +54,14 @@ def turnOn():
 	clock.turnOn()
 	return redirect(url_for('index'))
 
+@app.route('/convertSet', methods=['POST'])
+def convertSet():
+	items = request.form.items()
+	print items
+	print items['start']
+	print items['zend']
+	return redirect(url_for('index'))
+
 @app.route('/')
 def index():
 	return render_template('index.html')

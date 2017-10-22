@@ -39,14 +39,16 @@
 <form action="{{url_for('turnOff') }}" method="post">
 <center>
 <button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Force Refresh LCD</button></form></center>
-<br>
 
-<form action="{{url_for('turnOn') }}" method="post">
+
+<form action="{{url_for('convertSet') }}" method="post">
+<hr>
 <center>
-    <input type="text" name="tctc" class="form-control" placeholder="Hour:Minute" />
-    <input type="text" name="pass" class="form-control" placeholder="Hour:Minute" />
-
+<input type="text" style="width: 60%" name="start" class="form-control" placeholder="Hour:Minute" />
+<br>
+<input type="text" style="width: 60%" name="zend" class="form-control" placeholder="Hour:Minute" />
+<br>
 <button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Set Alarm</button></form></center>
 <br>
-
+</form>
 </div>
