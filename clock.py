@@ -16,7 +16,8 @@ app = Flask(__name__)
 def clear():
 	os.system('sudo ./clear')
 	return "Done"
-
+	
+@app.route('/write/<text1>', methods=['POST'])
 @app.route('/write/<text1>/<text2>', methods=['POST'])
 def write(text1, text2=""):
 	os.system('sudo ./main {} {}'.format(text1, text2))
