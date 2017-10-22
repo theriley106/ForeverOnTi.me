@@ -15,8 +15,8 @@ class Clock(object):
 		self.touch.dir(mraa.DIR_IN)
 		
 	def initthreads(self):
-		thread1 = threading.Thread(target=self.update)
-		thread1.start()
+		#thread1 = threading.Thread(target=self.update)
+		#thread1.start()
 		thread2 = threading.Thread(target=self.Alarm)
 		thread2.start()
 		thread3 = threading.Thread(target=self.returnSnooze)
