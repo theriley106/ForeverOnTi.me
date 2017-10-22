@@ -33,7 +33,7 @@ class Clock(object):
 			if self.custom == False:
 				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
 				loc_dt = eastern.localize(datetime(2012, 10, 29, 6, 0, 0))
-				loc_dt.strftime(fmt)
+				a = loc_dt.strftime(fmt)
 				a, b = a.split(' ')
 				os.system('sudo ./main "{}" "{}"'.format(a, b))
 			time.sleep(.8)
