@@ -35,9 +35,10 @@ class Clock(object):
 
 	def returnSnooze(self):
 		while True:
-			time.sleep(1)
-			if self.touch.read() == 0 and self.alarm == True:
-				self.alarm = False
+			if self.alarm == True:
+				time.sleep(1)
+				if self.touch.read() == 0 and self.alarm == True:
+					self.alarm = False
 
 	def Alarm(self):
 		while self.alarm == True:
