@@ -2,6 +2,7 @@ import requests
 import json
 import os
 
+
 def js_r(filename):
 	with open(filename) as f_in:
    		f_in = '{' + str(f_in.read()).partition('{')[2].strip()
