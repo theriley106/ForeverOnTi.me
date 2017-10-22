@@ -7,7 +7,7 @@ from flask import Flask, request, render_template, request, url_for, redirect, M
 import requests
 from pytz import timezone
 import pytz
-from datetime import datetime, timedelta
+import datetime
 app = Flask(__name__)
 class Clock(object):
 	def __init__(self):
@@ -27,15 +27,13 @@ class Clock(object):
 
 	def update(self):
 		time.sleep(3)
-		eastern = timezone('US/Eastern')
-		fmt = '%Y-%m-%d %H:%M:%S'
 		while True:
 			if self.custom == False:
 				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
-				loc_dt = eastern.localize(datetime(2012, 10, 29, 6, 0, 0))
-				a = loc_dt.strftime(fmt)
+				a = (datetime.datetime.utcnow() - datetime.timedelta(hours=4))
 				a, b = a.split(' ')
-				os.system('sudo ./main "{}" "{}"'.format(a, b))
+				b = b.partition('.')[0]
+				os.system('sudo ./main "{}" "{}"'.format(b, a))
 			time.sleep(.8)
 
 	def customText(self, text1, text2=" "):
