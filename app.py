@@ -39,7 +39,7 @@ def snooze():
 
 
 @app.route('/alarm/addvar/<times>', methods=['POST'])
-def alarm(times):
+def alarmSetting(times):
 	time1, time2 = times.split('+')
 	clock.setAlarm(time1, time2)
 	return "DONE"
