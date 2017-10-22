@@ -40,8 +40,7 @@ class Clock(object):
 		time.sleep(3)
 		while True:
 			if self.alarm == True:
-				time.sleep(1)
-				if self.touch.read() == 0 and self.alarm == True:
+				if self.touch.read() == 0:
 					self.alarm = False
 
 	def Alarm(self):
