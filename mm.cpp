@@ -37,6 +37,9 @@ void display(string str1, string str2, int red, int green, int blue)
 	lcd->setColor(red, green, blue);
 	lcd->setCursor(0,0); /* first row */
 	lcd->write(str1);
+	lcd->setCursor(1,1); 
+	lcd->write(str2);
+	sleep(2);
 }
 
 int main(int argc, char* argv[])
@@ -48,10 +51,8 @@ int main(int argc, char* argv[])
 	lcd = new upm::Jhd1313m1(I2C_BUS, 0x3e, 0x62);
 
 	while (true) {
-		display("Check out my mixtape...", "Red", RGB_RED);
-		sleep(2);
-		display("https://soundcloud.com/wavey-hefner/lil-pump-gucci-gang-prod-bighead-gnealz", "Red", RGB_RED);
-		sleep(2);
+		display("Check out", " my mixtape...", RGB_GRN);
+		display("https://soundcloud.com/wavey-hefner/lil-pum", "p-gucci-gang-prod-bighead-gnealz", RGB_GRN);
 }	delete lcd;
 	return 0;
 }
