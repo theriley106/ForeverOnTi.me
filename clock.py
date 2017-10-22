@@ -8,6 +8,7 @@ import requests
 from pytz import timezone
 import pytz
 import datetime
+import sleepytime
 app = Flask(__name__)
 class Clock(object):
 	def __init__(self):
@@ -15,6 +16,7 @@ class Clock(object):
 		self.custom = False
 		self.touch = mraa.Gpio(32)
 		self.touch.dir(mraa.DIR_IN)
+		self.alarmSet = False
 		self.baseSnooze = self.touch.read()
 		
 	def initthreads(self):
@@ -45,6 +47,9 @@ class Clock(object):
 	def returnSnooze(self):
 		time.sleep(3)
 		while True:
+			if self.alarmSet == True and self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end:
+				if self.touch.read() != self.baseSnooze:
+					self.alarmSet = False
 			if self.alarm == True:
 				if self.touch.read() != self.baseSnooze:
 					self.alarm = False
@@ -53,6 +58,7 @@ class Clock(object):
 	def Alarm(self):
 		time.sleep(3)
 		while True:
+			start, end = str((datetime.datetime.utcnow() - datetime.timedelta(hours=4))).split(' ')[1].split(':')[0:2]
 			if self.alarm == True:
 				buzz = mraa.Gpio(29)
 				buzz.dir(mraa.DIR_OUT)
@@ -60,6 +66,38 @@ class Clock(object):
 				time.sleep(.5)
 				buzz.write(0)
 				time.sleep(.5)
+			if self.alarmSet == True:
+				if self.alarmSet == True and self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end:
+					buzz = mraa.Gpio(29)
+					buzz.dir(mraa.DIR_OUT)
+					buzz.write(1)
+					time.sleep(.5)
+					buzz.write(0)
+					time.sleep(.5)
+				if self.alarmSet == True and self.time2 != self.time1:
+					if self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end and getSleep() != "rem":
+						buzz = mraa.Gpio(29)
+						buzz.dir(mraa.DIR_OUT)
+						buzz.write(1)
+						time.sleep(.5)
+						buzz.write(0)
+						time.sleep(.5)
+
+				if self.alarmSet == True and self.time2.split('.')[0] <= start and self.time1.split('.')[1] <= end:
+					buzz = mraa.Gpio(29)
+					buzz.dir(mraa.DIR_OUT)
+					buzz.write(1)
+					time.sleep(.5)
+					buzz.write(0)
+					time.sleep(.5)
+
+	def setAlarm(time1, time2=None):
+		self.time1 = time1.replace(":", ".")
+		if time2 != None:
+			self.time2 = time2.replace(":", ".")
+		else:
+			self.time2 = self.time1
+		self.alarmSet = True
 
 
 	def startAlarm(self):
