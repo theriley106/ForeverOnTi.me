@@ -9,7 +9,12 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link type="text/css" href="css/bootstrap.min.css" />
+        <link type="text/css" href="css/bootstrap-timepicker.min.css" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
 </head>
 
 
@@ -38,8 +43,20 @@
 
 <form action="{{url_for('turnOn') }}" method="post">
 <center>
-<input type="text" name="tctc" placeholder="TCTC Login" />
-    <input type="text" name="pass" placeholder="Password" />
+
+<div class="bootstrap-timepicker">
+            <input id="timepicker5" type="text" class="input-small">
+            <i class="icon-time"></i>
+        </div>
+ 
+        <script type="text/javascript">
+            $('#timepicker5').timepicker({
+                template: false,
+                showInputs: false,
+                minuteStep: 5
+            });
+        </script>
+
 <button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Turn On LCD</button></form></center>
 <br>
 
