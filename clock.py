@@ -15,10 +15,12 @@ app = Flask(__name__)
 @app.route('/clear/', methods=['POST'])
 def clear():
 	os.system('sudo ./clear')
+	return "Done"
 
 @app.route('/write/<text1>/<text2>', methods=['POST'])
 def write(text1, text2=""):
 	os.system('sudo ./main {} {}'.format(text1, text2))
+	return "Done"
 
 
 if __name__ == "__main__":
