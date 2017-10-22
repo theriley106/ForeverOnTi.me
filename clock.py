@@ -4,7 +4,7 @@ import threading
 from time import gmtime, strftime
 from flask import Flask, request, render_template, request, url_for, redirect, Markup, Response, send_file, send_from_directory, make_response, jsonify
 
-
+app = Flask(__name__)
 '''class Clock(object):
 	def __init__(object):
 		strftime("%Y-%m-%d %H:%M:%S", gmtime())'''
