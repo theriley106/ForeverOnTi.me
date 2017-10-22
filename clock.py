@@ -33,9 +33,10 @@ class Clock(object):
 			if self.custom == False:
 				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
 				a = str((datetime.datetime.utcnow() - datetime.timedelta(hours=4)))
-				a, b = a.split(' ')
-				b = b.partition('.')[0]
-				os.system('sudo ./main "{}" "{}"'.format(b, a))
+				if len(a) < 9:
+					a, b = a.split(' ')
+					b = b.partition('.')[0]
+					os.system('sudo ./main "{}" "{}"'.format(b, a))
 			time.sleep(1)
 
 	def customText(self, text1, text2=" "):
