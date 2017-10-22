@@ -16,7 +16,12 @@
 
 <div>
 <br>
-<center><button type="button" style="width: 60%" class="btn btn-primary btn-lg btn-block" href = "{{url_for('alarm') }}" method = "post">Trigger Alarm</button></center>
+<center>
+
+
+
+<form action="{{url_for('alarm') }}" method="post">
+<button type="button" style="width: 60%" class="btn btn-primary btn-lg btn-block">Trigger Alarm</button></form></center>
 <br>
 <center><button type="button" style="width: 60%" class="btn btn-primary btn-lg btn-block" href = "{{url_for('snooze') }}" method = "post">Snooze Alarm</button></center>
 
