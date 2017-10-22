@@ -43,21 +43,10 @@
 
 <form action="{{url_for('turnOn') }}" method="post">
 <center>
+    <input type="text" name="tctc" class="form-control" placeholder="Hour:Minute" />
+    <input type="text" name="pass" class="form-control" placeholder="Hour:Minute" />
 
-<div class="bootstrap-timepicker">
-            <input id="timepicker5" type="text" class="input-small">
-            <i class="icon-time"></i>
-        </div>
- 
-        <script type="text/javascript">
-            $('#timepicker5').timepicker({
-                template: false,
-                showInputs: false,
-                minuteStep: 5
-            });
-        </script>
-
-<button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Turn On LCD</button></form></center>
+<button type="submit" style="width: 60%" class="btn btn-primary btn-lg btn-block" >Set Alarm</button></form></center>
 <br>
 
 </div>
