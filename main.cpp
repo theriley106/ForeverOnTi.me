@@ -40,6 +40,5 @@ int main(int argc, char* argv[])
 	if ((argc >= 3) && (argv[2] != NULL))
 		str2 = argv[2];
 	display(str1, str2, RGB_GRN);
-	delete lcd;
 	return 0;
 }
