@@ -33,6 +33,7 @@ class Clock(object):
 			if self.custom == False:
 				#a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
 				a = str((datetime.datetime.utcnow() - datetime.timedelta(hours=4)))
+				print len(a)
 				if len(a) < 9:
 					a, b = a.split(' ')
 					b = b.partition('.')[0]
