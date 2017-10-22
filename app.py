@@ -17,7 +17,7 @@ clock = clock.Clock()
 @app.route('/clear/', methods=['POST'])
 def clear():
 	os.system('sudo ./clear')
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/write/<text1>', methods=['POST'])
 @app.route('/write/<text1>/<text2>', methods=['POST'])
@@ -25,34 +25,34 @@ def write(text1, text2=""):
 	print text1
 	print text2
 	os.system('sudo ./main "{}" "{}"'.format(text1, text2))
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/alarm/start', methods=['POST'])
 def alarm():
 	clock.startAlarm()
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/alarm/snooze', methods=['POST'])
 def snooze():
 	clock.alarm = False
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 
 @app.route('/alarm/addvar/<times>', methods=['POST'])
 def alarmSetting(times):
 	time1, time2 = times.split('+')
 	clock.setAlarm(time1, time2)
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/alarm/off', methods=['POST'])
 def turnOff():
 	clock.clear()
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/alarm/on', methods=['POST'])
 def turnOn():
 	clock.turnOn()
-	return render_template('index.html')
+	return redirect(url_for('index'))
 
 @app.route('/')
 def index():

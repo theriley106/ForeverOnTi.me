@@ -40,7 +40,7 @@ class Clock(object):
 			time.sleep(1)
 
 	def clear(self):
-		self.custom == True
+		self.custom = True
 		os.system('sudo ./clear')
 
 	def turnOn(self):
