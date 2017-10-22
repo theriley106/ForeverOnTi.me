@@ -42,6 +42,7 @@ class Clock(object):
 			if self.alarm == True:
 				if self.touch.read() == 0:
 					self.alarm = False
+					print("Alarm STOPPED")
 
 	def Alarm(self):
 		time.sleep(3)
