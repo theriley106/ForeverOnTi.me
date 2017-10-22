@@ -9,16 +9,16 @@ import requests
 app = Flask(__name__)
 class Clock(object):
 	def __init__(self):
+		self.alarm = False
+		self.custom = False
+		self.touch = mraa.Gpio(32)
+		self.touch.dir(mraa.DIR_IN)
 		thread1 = threading.Thread(target=self.update)
 		thread1.start()
 		thread2 = threading.Thread(target=self.Alarm)
 		thread2.start()
 		thread3 = threading.Thread(target=self.returnSnooze)
 		thread3.start()
-		self.alarm = False
-		self.custom = False
-		self.touch = mraa.Gpio(32)
-		self.touch.dir(mraa.DIR_IN)
 
 	def update(self):
 		while True:
@@ -35,6 +35,7 @@ class Clock(object):
 
 	def returnSnooze(self):
 		while True:
+			time.sleep(1)
 			if self.touch.read() == 0 and self.alarm == True:
 				self.alarm = False
 
