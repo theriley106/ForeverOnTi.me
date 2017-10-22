@@ -23,6 +23,7 @@ class Clock(object):
 		thread3.start()
 
 	def update(self):
+		time.sleep(3)
 		while True:
 			if self.custom == False:
 				a = strftime("%H:%M:%S %Y-%m-%d", gmtime()).replace(' ', '/')
@@ -36,6 +37,7 @@ class Clock(object):
 		requests.post('http://192.168.43.239:8888/write/{}/{}'.format(text1, text2))
 
 	def returnSnooze(self):
+		time.sleep(3)
 		while True:
 			if self.alarm == True:
 				time.sleep(1)
@@ -43,6 +45,7 @@ class Clock(object):
 					self.alarm = False
 
 	def Alarm(self):
+		time.sleep(3)
 		while self.alarm == True:
 			buzz = mraa.Gpio(29)
 			buzz.dir(mraa.DIR_OUT)
