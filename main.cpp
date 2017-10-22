@@ -1,7 +1,3 @@
-/*
- * modified demo script from https://github.com/96boards/Sensor_Mezzanine_Getting_Started
- */
-
 #include <string>
 #include "upm/jhd1313m1.hpp"
 #include <iostream>
