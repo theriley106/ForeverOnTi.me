@@ -9,7 +9,10 @@ from pytz import timezone
 import pytz
 import datetime
 import sleepytime
+
 app = Flask(__name__)
+
+
 class Clock(object):
 	def __init__(self):
 		self.alarm = False
