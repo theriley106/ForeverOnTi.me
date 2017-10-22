@@ -33,7 +33,7 @@ def alarm():
 
 @app.route('/alarm/snooze', methods=['POST'])
 def snooze():
-	clock.self.alarm = False
+	clock.alarm = False
 
 
 
