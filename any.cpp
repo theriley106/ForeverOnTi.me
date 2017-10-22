@@ -55,7 +55,6 @@ int main(int argc, char* argv[])
 		str2 = argv[2];
 		str3 = argv[3];
 		str4 = argv[4];
-
 		display(str1, str2, RGB_GRN);
 		display(str3, str4, RGB_GRN);
 }	delete lcd;
