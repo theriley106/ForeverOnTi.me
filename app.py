@@ -57,10 +57,9 @@ def turnOn():
 @app.route('/convertSet', methods=['POST'])
 def convertSet():
 	items = request.form.items()
-	print items
-	print items['start']
-	print items['zend']
-	return redirect(url_for('index'))
+	start = items[0][1]
+	end = items[1][1]
+	return redirect(url_for('alarmSetting', times="+".join(start,end)))
 
 @app.route('/')
 def index():
