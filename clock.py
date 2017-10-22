@@ -7,7 +7,7 @@ import requests
 
 app = Flask(__name__)
 class Clock(object):
-	def __init__(self,object):
+	def __init__(self):
 		thread1 = threading.Thread(target=self.update)
 		thread1.start()
 		thread2 = threading.Thread(target=self.Alarm)
