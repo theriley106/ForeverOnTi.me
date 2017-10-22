@@ -17,7 +17,7 @@ clock = clock.Clock()
 @app.route('/clear/', methods=['POST'])
 def clear():
 	os.system('sudo ./clear')
-	return "Done"
+	return render_template('index.html')
 
 @app.route('/write/<text1>', methods=['POST'])
 @app.route('/write/<text1>/<text2>', methods=['POST'])
@@ -25,24 +25,24 @@ def write(text1, text2=""):
 	print text1
 	print text2
 	os.system('sudo ./main "{}" "{}"'.format(text1, text2))
-	return "Done"
+	return render_template('index.html')
 
 @app.route('/alarm/start', methods=['POST'])
 def alarm():
 	clock.startAlarm()
-	return "DONE"
+	return render_template('index.html')
 
 @app.route('/alarm/snooze', methods=['POST'])
 def snooze():
 	clock.alarm = False
-	return "DONE"
+	return render_template('index.html')
 
 
 @app.route('/alarm/addvar/<times>', methods=['POST'])
 def alarmSetting(times):
 	time1, time2 = times.split('+')
 	clock.setAlarm(time1, time2)
-	return "DONE"
+	return render_template('index.html')
 
 @app.route('/')
 def index():
