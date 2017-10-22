@@ -68,7 +68,7 @@ class Clock(object):
 				buzz.write(0)
 				time.sleep(.5)
 			if self.alarmSet == True:
-				if self.alarmSet == True and self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end:
+				if self.alarmSet == True and self.time1.split('.')[0] <= start and self.time1.split('.')[1] <= end:
 					buzz = mraa.Gpio(29)
 					buzz.dir(mraa.DIR_OUT)
 					buzz.write(1)
@@ -76,7 +76,7 @@ class Clock(object):
 					buzz.write(0)
 					time.sleep(.5)
 				if self.alarmSet == True and self.time2 != self.time1:
-					if self.time1.split('.')[0] >= start and self.time1.split('.')[1] >= end and sleepytime.getSleep() != "rem":
+					if self.time1.split('.')[0] <= start and self.time1.split('.')[1] <= end and sleepytime.getSleep() != "rem":
 						buzz = mraa.Gpio(29)
 						buzz.dir(mraa.DIR_OUT)
 						buzz.write(1)
@@ -84,7 +84,7 @@ class Clock(object):
 						buzz.write(0)
 						time.sleep(.5)
 
-				if self.alarmSet == True and self.time2.split('.')[0] <= start and self.time1.split('.')[1] <= end:
+				if self.alarmSet == True and self.time2.split('.')[0] <= start and self.time2.split('.')[1] <= end:
 					buzz = mraa.Gpio(29)
 					buzz.dir(mraa.DIR_OUT)
 					buzz.write(1)
