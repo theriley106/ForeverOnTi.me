@@ -27,3 +27,5 @@ I learned a ton about Arduino and C++
 
 I have to give these parts back to the hardware desk, so most likely disassembly is the next step for ForeverOnTime. 
  Perhaps a Facebook buyout may come soon after ;)
+
+Time spent on this project: **~28hrs**
