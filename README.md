@@ -1,3 +1,5 @@
+[View The Project on Devpost](https://devpost.com/software/foreverontime)
+
 ## Inspiration
 
 I was inspired to create this project after frustratingly waking up for 17 years of my life.  After properly calculating the time of my sleep cycles, I have been able to wake up earlier and I feel far more refreshed after doing so.  I wanted to create a device that would make it easier for users to wake up in the morning, and  I was able to seamlessly connect both the hardware and software parts of this project to create a functioning "Smart Alarm Clock" prototype.
